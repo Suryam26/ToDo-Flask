@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+    <h1>LogIn</h1>
+    <h3 style="color: red;">{{ error }}</h3>
+    <form action="" method = "POST">
+        <p>Email <input type = "email" name = "email" required/></p>
+        <p>Password <input type = "password" name = "password" required/></p>
+        <input type = "submit" value = "Login" />
+    </form>
+    
+    <p>Dont Have an account?? <a href = "{{ url_for('register') }}">Register</a></p>
+{% endblock %}

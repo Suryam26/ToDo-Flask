@@ -8,6 +8,15 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    {% block body %}{% endblock %}
+    <div class="content">
+        <p style="text-align: center;">
+            {% if current_user.username %}
+                <span>Hi, {{ current_user.username }}</span>
+                <span><a href="/logout">Logout</a></span>
+            {% endif %} 
+        </p>
+
+        {% block body %}{% endblock %}
+    </div>
 </body>
 </html>
