@@ -29,3 +29,4 @@ $ (env) python app.py
 ---
 ### Resources
 * https://www.youtube.com/watch?v=Z1RJmh_OqeA
+* https://www.askpython.com/python-modules/flask/flask-user-authentication
