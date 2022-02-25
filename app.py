@@ -1,5 +1,4 @@
 # Imports
-from distutils.log import error
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -89,16 +88,15 @@ def delete(id):
 @login_required
 def update(id):
     task = Todo.query.get_or_404(id)
-
-    if request.method == 'POST':
-        task.content = request.form['content']
-        try:
-            db.session.commit()
-            return redirect('/')
-        except:
-            return 'There was an issue updating your task'
-    
-    elif task.user == current_user:
+    if task.user == current_user:
+        if request.method == 'POST':
+            task.content = request.form['content']
+            try:
+                db.session.commit()
+                return redirect('/')
+            except:
+                return 'There was an issue updating your task'
+                
         return render_template('update.html', task=task)
 
     else:
